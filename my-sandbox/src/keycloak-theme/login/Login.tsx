@@ -1,7 +1,7 @@
 import { KcProps } from "keycloakify";
 import Template from "keycloakify/login/Template";
 import { useI18n } from "./i18n";
-import "./Login.css";
+import "../main.css";
 
 export default function Login(props: KcProps) {
   const { kcContext, doUseDefaultCss = false } = props;
@@ -22,7 +22,7 @@ export default function Login(props: KcProps) {
     <div className="kcBodyClass">
       <div className="mysandbox-header">
         <img
-          src="/logo-mysandbox.svg"
+          src="assets/logo-mysandbox.svg"
           alt="Logo MySandBox"
           className="mysandbox-logo"
         />
@@ -83,7 +83,7 @@ export default function Login(props: KcProps) {
 
           <div className="kcFormGroupClass">
             <button type="submit" id="kc-login" className="kcButtonClass">
-              Connexion :)
+              Connexion
             </button>
           </div>
 

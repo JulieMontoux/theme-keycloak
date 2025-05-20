@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta } from "@storybook/react";
-import { KcPage } from "../kc.gen";
-import { getKcContextMock } from "./KcPageStory";
+import { KcPage } from "../keycloak-theme/kc.gen";
+import { getKcContextMock } from "../keycloak-theme/login/KcPageStory";
 
 const meta: Meta = {
   title: "Keycloak/Login",

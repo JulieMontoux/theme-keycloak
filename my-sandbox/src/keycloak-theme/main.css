@@ -1,10 +1,16 @@
 /* Import des polices */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=League+Spartan:wght@700&display=swap');
 
+html, body, #root, #storybook-root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+  background-color: transparent ;
+}
+
 /* Dégradé de fond fluide */
-body,
-#root,
-.kcBodyClass {
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -19,23 +25,23 @@ body,
   );
   background-size: cover;
   background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-
-/* Cible globale */
-.kcBodyClass {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start; /* au lieu de center */
   align-items: center;
-  justify-content: center;
+  padding-top: 4vh; /* espace en haut */
+}
+
+
+.kcLoginClass{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Masquer les éléments inutiles */
-.kcRealmClass,
 .kcLanguageClass,
 .kcLanguageRealmClass,
 .kcLanguageBlockClass,
@@ -43,7 +49,7 @@ body,
 .kcFormHeaderClass,
 .kcHeaderClass,
 .kcContentWrapperClass > .kcFormCardClass:first-child {
-  display: none !important;
+  display: none ;
 }
 
 /* Wrapper du contenu */
@@ -72,12 +78,15 @@ body,
   padding: 3rem;
   border-radius: 20px;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+
   width: 100%;
-  max-width: 400px;
-  display: flex;
+  min-width: 400px;
+  
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
+
 
 /* Titre du formulaire */
 .kcFormTitleClass {
@@ -134,12 +143,6 @@ body,
   background-color: #5e35c9;
 }
 
-.kcLoginClass{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .kcFormOptions {
   display: flex;
   justify-content: space-between;
@@ -177,3 +180,24 @@ body,
   margin-top: 1rem;
 }
 
+/* Erreurs */
+.kcFormMessageClass,
+.kcFormFieldErrorClass {
+  color: #ff4d4f;
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Groupe avec erreur */
+.kcFormGroupErrorClass input {
+  border: 2px solid #ff4d4f ;
+}
+
+/* Label */
+.kcLabelClass {
+  display: block;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
