@@ -1,19 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { createRoot } from "react-dom/client";
+import { StrictMode, lazy, Suspense } from "react";
+import { KcPage, type KcContext } from "./keycloak-theme/kc.gen";
+const AppEntrypoint = lazy(() => import("./index.app"));
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    {window.kcContext ? (
+      <KcPage kcContext={window.kcContext} />
+    ) : (
+      <Suspense>
+        <AppEntrypoint />
+      </Suspense>
+    )}
+  </StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+declare global {
+  interface Window {
+    kcContext?: KcContext;
+  }
+}

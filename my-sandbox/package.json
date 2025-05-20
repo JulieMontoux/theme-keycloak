@@ -11,6 +11,7 @@
     "@types/node": "^16.18.126",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
+    "keycloakify": "^11.8.27",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-scripts": "5.0.1",
@@ -18,10 +19,21 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prestart": "keycloakify update-kc-gen && keycloakify copy-keycloak-resources-to-public",
     "start": "react-scripts start",
+    "prestorybook": "npm run prestart",
+    "storybook": "storybook dev -p 6006",
+    "prebuild": "keycloakify update-kc-gen",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "postbuild": "rimraf build/keycloakify-dev-resources",
+    "build-keycloak-theme": "npm run build && keycloakify build",
+    "format": "prettier . --write"
+  },
+  "keycloakify": {
+    "accountThemeImplementation": "none",
+    "projectBuildDirPath": "build",
+    "staticDirPathInProjectBuildDirPath": "static",
+    "publicDirPath": "public"
   },
   "eslintConfig": {
     "extends": [
