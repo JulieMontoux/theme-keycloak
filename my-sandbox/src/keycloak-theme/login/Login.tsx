@@ -20,13 +20,13 @@ export default function Login(props: KcProps) {
 
   return (
     <div className="kcBodyClass">
-      <div className="mysandbox-header">
+      {/* <div className="mysandbox-header">
         <img
           src="assets/logo-mysandbox.svg"
           alt="Logo MySandBox"
           className="mysandbox-logo"
         />
-      </div>
+      </div> */}
 
       <Template
         kcContext={kcContext}
