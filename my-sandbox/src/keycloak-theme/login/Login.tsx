@@ -83,7 +83,7 @@ export default function Login(props: KcProps) {
 
           <div className="kcFormGroupClass">
             <button type="submit" id="kc-login" className="kcButtonClass">
-              Connexion
+              Connexion :)
             </button>
           </div>
 
