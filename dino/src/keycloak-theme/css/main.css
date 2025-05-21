@@ -4,7 +4,7 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: url('../resources/img/dino-vert.png') no-repeat center center fixed;
+  background: url('../login/assets/dino-vert.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'DM Sans', sans-serif;
   display: flex;
