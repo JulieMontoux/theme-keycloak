@@ -2,6 +2,7 @@ import { KcProps } from "keycloakify";
 import Template from "keycloakify/login/Template";
 import { useI18n } from "./i18n";
 import "./Login.css";
+import "../css/main.css"
 
 export default function Login(props: KcProps) {
   const { kcContext, doUseDefaultCss = false } = props;
