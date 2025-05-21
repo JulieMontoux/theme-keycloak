@@ -108,5 +108,4 @@ rm -rf build_keycloak
 ## 🙋‍♀️ Auteure
 
 Julie Montoux — 2025
-Projet Keycloakify multi-thèmes (Login / Dinosaures)
-[GitHub](https://github.com/ton-github)
+Projet Keycloakify multi-thèmes
