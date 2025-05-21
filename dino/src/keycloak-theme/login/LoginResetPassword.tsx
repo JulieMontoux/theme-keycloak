@@ -30,7 +30,7 @@ export default function LoginResetPassword(props: KcProps) {
 
         <div style={{ marginTop: "1rem" }}>
           <a href={url.loginUrl} className="kcLink">
-            🔙 Retour à la connexion
+            ← Retour à la connexion
           </a>
         </div>
       </div>
