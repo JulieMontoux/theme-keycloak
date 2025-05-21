@@ -2,11 +2,11 @@ import { KcProps } from "keycloakify";
 import Template from "keycloakify/login/Template";
 import { useI18n } from "./i18n";
 import "./Login.css";
-import "../css/main.css"
+import "../css/main.css";
 
 export default function Login(props: KcProps) {
   const { kcContext, doUseDefaultCss = false } = props;
-  const { url, login, realm, usernameHidden } = kcContext;
+  const { url, login, realm, usernameHidden, message } = kcContext;
   const { i18n } = useI18n({ kcContext });
   const { msgStr } = i18n;
 
@@ -15,6 +15,13 @@ export default function Login(props: KcProps) {
       <div className="kcLoginCard">
         <div className="kcRealmName">{realm.displayName ?? realm.realm}</div>
         <h1 className="kcFormTitleClass">Connexion</h1>
+
+        {kcContext.message?.type === "error" && (
+          <div className="kcErrorMessage">
+            🦕 Raaaw... essaie encore petit dino !
+          </div>
+        )}
+
         <form id="kc-form-login" action={url.loginAction} method="post">
           {!usernameHidden && (
             <input

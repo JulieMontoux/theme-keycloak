@@ -15,6 +15,7 @@ const doMakeUserConfirmPassword = true;
 export default function KcPage(props: { kcContext: KcContext }) {
   const { kcContext } = props;
 
+  kcContext.locale = { currentLanguageTag: "fr",   supported: [] };
   const { i18n } = useI18n({ kcContext });
 
   return (
@@ -27,14 +28,18 @@ export default function KcPage(props: { kcContext: KcContext }) {
           default:
             return (
               <DefaultPage
-                    kcContext={kcContext}
-                    i18n={i18n}
-                    classes={classes}
-                    doUseDefaultCss={true}
-                    UserProfileFormFields={UserProfileFormFields}
-                    doMakeUserConfirmPassword={doMakeUserConfirmPassword} Template={function (props: TemplateProps<any, any>): React.ReactElement<any, any> | null {
-                        throw new Error("Function not implemented.");
-                    } }              />
+                kcContext={kcContext}
+                i18n={i18n}
+                classes={classes}
+                doUseDefaultCss={true}
+                UserProfileFormFields={UserProfileFormFields}
+                doMakeUserConfirmPassword={doMakeUserConfirmPassword}
+                Template={function (
+                  props: TemplateProps<any, any>
+                ): React.ReactElement<any, any> | null {
+                  throw new Error("Function not implemented.");
+                }}
+              />
             );
         }
       })()}
