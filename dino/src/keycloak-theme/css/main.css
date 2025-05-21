@@ -139,3 +139,45 @@ html {
   color: #252525;
   margin-top: 1rem;
 }
+
+
+.kcMessage {
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'League Spartan', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.kcMessage--error {
+  background: linear-gradient(135deg, #ffe5e5, #ffcccc);
+  color: #8b0000;
+  border: 2px solid #b00020;
+  box-shadow: 0 0 10px rgba(176, 0, 32, 0.3);
+  animation: shake 0.3s ease-in-out;
+}
+
+.kcMessage--success {
+  background: linear-gradient(135deg, #e5ffe5, #ccffcc);
+  color: #006400;
+  border: 2px solid #228B22;
+  box-shadow: 0 0 10px rgba(34, 139, 34, 0.3);
+}
+
+.kcMessage--info {
+  background: linear-gradient(135deg, #e6f0ff, #d0e7ff);
+  color: #056ddd;
+  border: 2px solid #009bd4;
+  box-shadow: 0 0 10px rgba(5,109,221, 0.3);
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}

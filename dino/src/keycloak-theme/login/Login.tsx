@@ -1,14 +1,26 @@
 import { KcProps } from "keycloakify";
 import Template from "keycloakify/login/Template";
 import { useI18n } from "./i18n";
-import "./Login.css";
 import "../css/main.css";
+import { useEffect, useState } from "react";
 
 export default function Login(props: KcProps) {
   const { kcContext, doUseDefaultCss = false } = props;
   const { url, login, realm, usernameHidden, message } = kcContext;
   const { i18n } = useI18n({ kcContext });
   const { msgStr } = i18n;
+
+  const [showRegistrationInfo, setShowRegistrationInfo] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("showRegistrationInfo") === "true") {
+      setShowRegistrationInfo(true);
+      sessionStorage.removeItem("showRegistrationInfo");
+    }
+  }, []);
+
+
+  console.log("kcContext.message", kcContext.message);
 
   return (
     <div className="kcBodyClass">
@@ -17,8 +29,20 @@ export default function Login(props: KcProps) {
         <h1 className="kcFormTitleClass">Connexion</h1>
 
         {kcContext.message?.type === "error" && (
-          <div className="kcErrorMessage">
+          <div className="kcMessage kcMessage--error">
             🦕 Raaaw... essaie encore petit dino !
+          </div>
+        )}
+
+        {kcContext.message?.type === "success" && (
+          <div className="kcMessage kcMessage--success">
+            🦖 Ton email est parti à dos de ptérodactyle !
+          </div>
+        )}
+
+        {showRegistrationInfo && (
+          <div className="kcMessage kcMessage--info">
+            🦕 Rejoindre le troupeau ? Parle au gardien du parc !
           </div>
         )}
 
@@ -65,8 +89,14 @@ export default function Login(props: KcProps) {
 
         {realm.registrationAllowed && (
           <div className="kcRegisterWrapper">
-            <a href={url.registrationUrl} className="kcLink">
-              Pas encore inscrit ? Créez un compte
+            <a
+              href={url.loginUrl}
+              className="kcLink"
+              onClick={() => {
+                sessionStorage.setItem("showRegistrationInfo", "true");
+              }}
+            >
+              Pas encore inscrit ? Rejoins nous !
             </a>
           </div>
         )}

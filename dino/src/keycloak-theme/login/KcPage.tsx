@@ -4,6 +4,7 @@ import type { KcContext } from "./KcContext";
 import { useI18n } from "./i18n";
 import DefaultPage from "keycloakify/login/DefaultPage";
 import Login from "./Login";
+import LoginResetPassword from "./LoginResetPassword";
 import { TemplateProps } from "keycloakify/login/TemplateProps";
 
 const UserProfileFormFields = lazy(
@@ -15,7 +16,7 @@ const doMakeUserConfirmPassword = true;
 export default function KcPage(props: { kcContext: KcContext }) {
   const { kcContext } = props;
 
-  kcContext.locale = { currentLanguageTag: "fr",   supported: [] };
+  kcContext.locale = { currentLanguageTag: "fr", supported: [] };
   const { i18n } = useI18n({ kcContext });
 
   return (
@@ -24,6 +25,8 @@ export default function KcPage(props: { kcContext: KcContext }) {
         switch (kcContext.pageId) {
           case "login.ftl":
             return <Login kcContext={kcContext} />;
+          case "login-reset-password.ftl":
+            return <LoginResetPassword kcContext={kcContext} />;
 
           default:
             return (
